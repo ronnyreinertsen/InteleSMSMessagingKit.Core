@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>InteleSMSMessagingKit.Core</PackageId>
+    <Authors>Ronny Berglihn Reinertsen</Authors>
+    <Company>Intele AS</Company>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
+    <PackageProjectUrl>https://intele.no/NuGet/SmsMessagingKit</PackageProjectUrl>
+    <PackageIconUrl>https://intele.no/favicon.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/ronnyreinertsen/InteleSMSMessagingKit.Core</RepositoryUrl>
+    <PackageTags>mobile gsm billing gas cpa cellphone gateway</PackageTags>
+    <Version>1.0.0.9</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>InteleSMSMessagingKit.Core</Product>
+    <AssemblyName>InteleSMSMessagingKit.Core</AssemblyName>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Samples\Examples.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Samples\Examples.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.10.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.24.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.24.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ServiceStack.Client" Version="5.7.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
