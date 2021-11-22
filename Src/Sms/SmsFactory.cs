@@ -56,7 +56,7 @@ namespace InteleSmsMessagingKit
 		/// </summary>
 		/// <param name="message"></param>
 		/// <returns></returns>
-		public static SendHttpResponse.SendSmsResult SendSms(SmsHttpMessage message)
+		public static async Task<SendHttpResponse.SendSmsResult> SendSms(SmsHttpMessage message)
 		{
 
 			//Check if we need to read from app.config
@@ -66,7 +66,7 @@ namespace InteleSmsMessagingKit
 			if (string.IsNullOrEmpty(message.CustomerPassword))
 				message.CustomerPassword = ConfigurationManager.AppSettings["InteleApiPassword"];
 
-			return SmsMessageHttpClient.SendMessage(message);
+			return await SmsMessageHttpClient.SendMessage(message);
 		}
 
 		/// <summary>
@@ -109,7 +109,7 @@ namespace InteleSmsMessagingKit
 		/// <param name="businessModel"></param>
 		/// <param name="serviceCode"></param>
 		/// <returns></returns>
-		public static SendHttpResponse.SendSmsResult SendSmsWithParameters(int customerId, string customerPassword, long gateway, int price, string messageId,
+		public static async Task<SendHttpResponse.SendSmsResult> SendSmsWithParameters(int customerId, string customerPassword, long gateway, int price, string messageId,
 			 long destinationAddress, string originatorAddress,
 			 string textMessage, string category, string drUrl, int qos, string messageType, string businessModel, string serviceCode)
 		{
@@ -134,7 +134,7 @@ namespace InteleSmsMessagingKit
 			};
 
 
-			SendHttpResponse.SendSmsResult sendResponse = InteleSmsMessagingKit.SmsFactory.SendSms(newMessage);
+			SendHttpResponse.SendSmsResult sendResponse = await InteleSmsMessagingKit.SmsFactory.SendSms(newMessage);
 
 			return sendResponse;
 
