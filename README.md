@@ -14,3 +14,4 @@ Changes:
 21.10.2019 - Upgraded project to .NET Framework 4.8
 22.10.2019 - Bug fix on CustomData variable result in null exception if not set using REST API
 25.10.2019 - Ported to .NET Core
+22.11.2021 - Upgraded to .NET 6
