@@ -4,7 +4,7 @@
 		<!--*-->
 		<id>$id$</id>
 		<!--*-->
-		<version>1.1.0.0</version>
+		<version>1.1.1.0</version>
 		<title>Intele Sms Messaging Kit .Core</title>
 		<!--*-->
 		<authors>Ronny Berglihn Reinertsen</authors>
@@ -12,17 +12,23 @@
 		<!--
 		<licenseUrl></licenseUrl>
 		-->
+		<license type="expression">MIT</license>
 		<projectUrl>https://intele.no/NuGet/SmsMessagingKit.Core</projectUrl>
-		<icon>logo.png</icon>
+		<!--
+		<icon>.\logo.png</icon>
+		-->
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<!--*-->
 		<description>InteleSMSMessagingKit for misc services at Intele AS</description>
 		<!--*-->
-		<releaseNotes>Ported to .NET Core</releaseNotes>
+		<releaseNotes>Upgraded lib references</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>mobile gsm billing gas cpa cellphone gateway</tags>
 		<dependencies>
 			<group targetFramework="net6.0" />
 		</dependencies>
 	</metadata>
+	<!--<files>
+		<file src=".\logo.png" target="images\" />
+	</files>-->
 </package>
