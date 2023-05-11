@@ -30,6 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="InteleSMSMessagingKit.Core.1.1.2.1.nupkg" />
+    <None Remove="InteleSMSMessagingKit.Core.1.1.2.2.nupkg" />
+    <None Remove="InteleSMSMessagingKit.Core.1.1.2.nupkg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Intele.Examples\Request.Examples.cs" />
   </ItemGroup>
 

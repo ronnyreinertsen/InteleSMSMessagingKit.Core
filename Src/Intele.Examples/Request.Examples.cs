@@ -54,8 +54,6 @@ namespace InteleSmsMessagingKit.Tests
 		/// <summary>
 		/// Simple Send message test using REST API
 		/// </summary>
-		/// <param name="customerId"></param>
-		/// <param name="password"></param>
 		/// <param name="destinationAddress"></param>
 		/// <param name="message"></param>
 		public static void SendSmsMessageRestApi(long destinationAddress, string message)
@@ -122,8 +120,6 @@ namespace InteleSmsMessagingKit.Tests
 		/// <summary>
 		/// Send simple test message using HTTP GET API
 		/// </summary>
-		/// <param name="customerId"></param>
-		/// <param name="password"></param>
 		/// <param name="destinationAddress"></param>
 		/// <param name="message"></param>
 		public static void SendSmsMessage(long destinationAddress, string message)
@@ -167,8 +163,6 @@ namespace InteleSmsMessagingKit.Tests
 		/// <summary>
 		/// Send Sms message using SOAP API
 		/// </summary>
-		/// <param name="customerId"></param>
-		/// <param name="password"></param>
 		/// <param name="destinationAddress"></param>
 		/// <param name="message"></param>
 		public static async void SendSmsMessageSoap(long destinationAddress, string message)

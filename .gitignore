@@ -7,4 +7,4 @@
 /.vs/slnx.sqlite
 /.vs
 /Src/bin
-*.nupkg
+/Src/*.nupkg
