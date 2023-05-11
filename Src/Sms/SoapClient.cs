@@ -17,15 +17,16 @@ namespace InteleSmsMessagingKit.Sms
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static SmsSoapApi.ResponseObj SendMessage(SmsSoapApi.SendSMSRequest message)
+        public static async Task<SmsSoapApi.ResponseObj> SendMessage(SmsSoapApi.SendSMSRequest message)
         {
+         
 
-            var client = new SmsSoapApi.SMSgatewaySoapClient();
+            var client = new SmsSoapApi.SMSgatewaySoapClient(SmsSoapApi.SMSgatewaySoapClient.EndpointConfiguration.SMS_x0020_gatewaySoap12);
 
-            var resp = client.SendSMS(message.Authorizer, message.smsObj);
+            var resp = await client.SendSMSAsync(message.Authorizer, message.smsObj);
 				
 
-            return resp;
+            return resp.SendSMSResult;
 
         }
 

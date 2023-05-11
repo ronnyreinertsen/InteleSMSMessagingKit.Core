@@ -5,66 +5,70 @@
     <PackageId>InteleSMSMessagingKit.Core</PackageId>
     <Authors>Ronny Berglihn Reinertsen</Authors>
     <Company>Intele AS</Company>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <PackageProjectUrl>https://intele.no/NuGet/SmsMessagingKit</PackageProjectUrl>
-    <PackageIconUrl>logo.png</PackageIconUrl>
+    <PackageIconUrl>https://intele.no/favicon.ico</PackageIconUrl>
     <RepositoryUrl>https://github.com/ronnyreinertsen/InteleSMSMessagingKit.Core</RepositoryUrl>
     <PackageTags>mobile gsm billing gas cpa cellphone gateway</PackageTags>
-    <Version>1.1.1.0</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1.0</Version>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Product>InteleSMSMessagingKit.Core</Product>
     <AssemblyName>InteleSMSMessagingKit.Core</AssemblyName>
     <RepositoryType>git</RepositoryType>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageReleaseNotes>Upgraded lib references</PackageReleaseNotes>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Title>Intele Sms Messaging Kit .Core</Title>
-    <Description>Library for sending SMS textmessages and other mobile related services delivered from Intele AS</Description>
+    <FileVersion>1.0.1.0</FileVersion>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Samples\Examples.cs" />
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="logo.png" />
+    <Compile Remove="Intele.Exsamples\Request.Examples.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Intele.Exsamples\Request.Examples.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Samples\Examples.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.21.9" />
-    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.49.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.50.0">
+    <PackageReference Include="Google.Protobuf" Version="3.22.4" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.53.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.54.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="ServiceStack.Client" Version="6.4.0" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.*" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.10.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.*" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.2" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.10.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <Compile Update="appsettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Update="appsettings.json">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>appsettings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

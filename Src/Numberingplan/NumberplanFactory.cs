@@ -4,33 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
-
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace InteleSmsMessagingKit
 {
-    /// <summary>
-    /// Check if number is a valid international mobile number. Service must be enabled for your account
-    /// </summary>
+	/// <summary>
+	/// Check if number is a valid international mobile number. Service must be enabled for your account
+	/// </summary>
 	public class NumberplanFactory
-    {
-        /// <summary>
-        /// Query MSISDN information using default login from app.config
-        /// </summary>
-        /// <param name="phoneNumber"></param>
-        /// <returns></returns>
-        public static NumberplanService.NumberInfo CheckNumberplan(long phoneNumber)
-        {
-            var client = new NumberplanService.NumberplanPublicSoapClient("NumberplanPublicSoap12");
+	{
+		/// <summary>
+		/// Query MSISDN information using default login from app.config
+		/// </summary>
+		/// <param name="phoneNumber"></param>
+		/// <returns></returns>
+		public static async Task<NumberplanService.NumberInfo> CheckNumberplan(IConfiguration config, long phoneNumber)
+		{
+			var client = new NumberplanService.NumberplanPublicSoapClient(NumberplanService.NumberplanPublicSoapClient.EndpointConfiguration.NumberplanPublicSoap12);
 
-            var auth = new NumberplanService.Authorizer {
-                ApiCustomerId = int.Parse(ConfigurationManager.AppSettings["InteleApiCustomerId"]),
-                ApiPassword = ConfigurationManager.AppSettings["InteleApiPassword"]
-            };
+			var auth = new NumberplanService.Authorizer
+			{
+				ApiCustomerId = config.GetValue<int>("InteleApiCustomerId"),
+				ApiPassword = config.GetValue<string>("InteleApiPassword")
+			};			
 
-            var result = client.Query(auth, phoneNumber);
+			var result = await client.QueryAsync(auth, phoneNumber);
 
-            return result;
-        }
+			return result.QueryResult;
+		}
 
-    }
+	}
 }

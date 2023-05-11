@@ -41,9 +41,9 @@ namespace InteleSmsMessagingKit
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-		public static async  Task<SendHttpResponse.SendSmsResult> SendMessage(SmsHttpMessage message)
+		public static SendHttpResponse.SendSmsResult SendMessage(SmsHttpMessage message)
         {
-            return SendHttpResponse.Parse(await SendHttp(message));
+            return SendHttpResponse.Parse(SendHttp(message));
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace InteleSmsMessagingKit
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        private static async Task<byte[]> SendHttp(SmsHttpMessage message)
+        private static byte[] SendHttp(SmsHttpMessage message)
         {
             string url = String.Empty;
 
@@ -72,9 +72,9 @@ namespace InteleSmsMessagingKit
 
             using (HttpClient client = new())
             {
+                string response = client.GetAsync(url + message.ToUrl()).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
-               var response = await client.GetStringAsync(url + message.ToUrl());
-               return Encoding.UTF8.GetBytes(response);
+					 return Encoding.UTF8.GetBytes(response);
 
             }
 

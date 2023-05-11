@@ -15,3 +15,4 @@ Changes:
 22.10.2019 - Bug fix on CustomData variable result in null exception if not set using REST API
 25.10.2019 - Ported to .NET Core
 22.11.2021 - Upgraded to .NET 6
+07.05.2023 - Upgraded to .NET Core 6. Removed ServiceStack as dependency
