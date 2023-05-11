@@ -26,11 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Intele.Exsamples\Request.Examples.cs" />
+    <Compile Remove="Intele.Examples\Request.Examples.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Intele.Exsamples\Request.Examples.cs" />
+    <Content Include="Intele.Examples\Request.Examples.cs" />
   </ItemGroup>
 
   <ItemGroup>
