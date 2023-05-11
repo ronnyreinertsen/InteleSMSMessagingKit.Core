@@ -4,11 +4,12 @@
 		<!--*-->
 		<id>$id$</id>
 		<!--*-->
-		<version>1.1.2</version>
+		<version>1.1.2.1</version>
 		<title>Intele Sms Messaging Kit .Core</title>
 		<!--*-->
 		<authors>Ronny Berglihn Reinertsen</authors>
 		<owners>$author$</owners>
+		<readme>docs\README.md</readme>
 		<!--
 		<licenseUrl></licenseUrl>
 		-->
@@ -28,7 +29,8 @@
 			<group targetFramework="net6.0" />
 		</dependencies>
 	</metadata>
-	<!--<files>
+	<files>
+		<file src="..\README.md" target="docs\" />
 		<file src=".\logo.png" target="images\" />
-	</files>-->
+	</files>
 </package>
